@@ -1,0 +1,29 @@
+// DSCH 2.7f
+// 9/6/2019 12:55:13 PM
+// example
+
+module example( InputA,InputB,in3,out1);
+ input InputA,InputB,in3;
+ output out1;
+ not #(1) inv(w4,InputA);
+ not #(1) inv(w5,InputB);
+ not #(1) inv(w6,in3);
+ and #(1) and(w9,w7,w8);
+ and #(1) and(w10,w4,w5,in3);
+ and #(1) and(w11,w4,InputB,w6);
+ and #(1) and(w12,InputA,w5,w6);
+ or #(1) or(out1,w10,w11,w13);
+ and #(1) and(w15,InputA,InputB,in3);
+ or #(1) or(w13,w12,w15);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#10 Input A=~Input A;
+#20 Input B=~Input B;
+#40 in3=~in3;
+
+// Simulation parameters
+// Input A CLK 10 10
+// Input B CLK 20 20
+// in3 CLK 40 40
